@@ -7,7 +7,7 @@
          <httpHeaders>
            <property>
              <name>Job-Token</name>
-             <value>${CI_JOB_TOKEN}</value>
+             <value>${Deploy_Token}</value>
            </property>
          </httpHeaders>
        </configuration>
