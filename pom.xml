@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.openhab</groupId>
@@ -45,16 +47,16 @@
 
   <distributionManagement>
     <repository>
-        <id>maven</id>
-        <name>maven-central</name>
-        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <id>maven</id>
+      <name>GitLab openHAB Maven Repository</name>
+      <url>https://gitlab.com/api/v4/projects/58666355/packages/maven</url>
     </repository>
   </distributionManagement>
 
   <properties>
     <oh.scm.gitBaseUrl>https://github.com/openhab</oh.scm.gitBaseUrl>
-    <oh.repo.distBaseUrl>https://openhab.jfrog.io/openhab</oh.repo.distBaseUrl>
-    <oh.repo.releaseBaseUrl>https://openhab.jfrog.io/openhab</oh.repo.releaseBaseUrl>
+    <oh.repo.distBaseUrl>https://gitlab.com/tvision360/infrastructure</oh.repo.distBaseUrl>
+    <oh.repo.releaseBaseUrl>https://gitlab.com/tvision360/infrastructure</oh.repo.releaseBaseUrl>
     <oh.repo.snapshotBaseUrl>${oh.repo.releaseBaseUrl}</oh.repo.snapshotBaseUrl>
     <oh.unleash.version>2.9.3</oh.unleash.version>
     <oh.unleash.git.version>2.2.0</oh.unleash.git.version>
@@ -78,7 +80,7 @@
     </repository>
     <repository>
       <id>openhab-release</id>
-      <name>openHAB Release Repository</name>
+      <name>GitLab openHAB Release Repository</name>
       <url>${oh.repo.releaseBaseUrl}/libs-release</url>
       <releases>
         <enabled>true</enabled>
@@ -99,7 +101,7 @@
     </pluginRepository>
     <pluginRepository>
       <id>openhab-release</id>
-      <name>openHAB Release Repository</name>
+      <name>GitLab openHAB Release Repository</name>
       <url>${oh.repo.releaseBaseUrl}/libs-release</url>
     </pluginRepository>
   </pluginRepositories>
@@ -119,7 +121,7 @@
         -->
         <repository>
           <id>openhab-release</id>
-          <name>openHAB Release Repository</name>
+          <name>GitLab openHAB Release Repository</name>
           <url>${oh.repo.releaseBaseUrl}/libs-release</url>
           <releases>
             <enabled>true</enabled>
@@ -131,7 +133,7 @@
         </repository>
         <repository>
           <id>openhab-snapshot</id>
-          <name>openHAB Snapshot Repository</name>
+          <name>GitLab openHAB Snapshot Repository</name>
           <url>${oh.repo.snapshotBaseUrl}/libs-snapshot</url>
           <releases>
             <enabled>false</enabled>
@@ -145,36 +147,10 @@
       <pluginRepositories>
         <pluginRepository>
           <id>openhab-snapshot</id>
-          <name>openHAB Snapshot Repository</name>
+          <name>GitLab openHAB Snapshot Repository</name>
           <url>${oh.repo.snapshotBaseUrl}/libs-snapshot</url>
         </pluginRepository>
       </pluginRepositories>
-    </profile>
-    <profile>
-      <id>sign</id>
-      <activation>
-        <property>
-          <name>sign</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
     </profile>
   </profiles>
 
