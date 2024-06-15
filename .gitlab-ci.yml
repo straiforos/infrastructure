@@ -5,23 +5,12 @@ cache:
     - .m2/repository
 
 stages:
-  - build
   - deploy
-
-variables:
-  MAVEN_CLI_OPTS: "-s ci_settings.xml"
-
-build:
-  stage: build
-  script:
-    - mvn $MAVEN_CLI_OPTS clean install
 
 deploy:
   stage: deploy
   script:
-    - mvn deploy \
-        -Dorg.slf4j.simpleLogger.log.org.apache.maven.wagon.providers.http.httpclient=trace \
-        -Dorg.slf4j.simpleLogger.log.org.apache.maven.wagon.providers.http.httpclient.wire=trace
-        -s ci_settings.xml
+    - mvn clean install -s ci_settings.xml
+    - mvn deploy -s ci_settings.xml
   only:
     - main
