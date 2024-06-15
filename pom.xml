@@ -49,7 +49,7 @@
     <repository>
       <id>maven</id>
       <name>GitLab openHAB Maven Repository</name>
-      <url>https://gitlab.com/api/v4/projects/58666355/packages/maven</url>
+      <url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
     </repository>
   </distributionManagement>
 
@@ -134,7 +134,7 @@
         <repository>
           <id>openhab-snapshot</id>
           <name>GitLab openHAB Snapshot Repository</name>
-          <url>${oh.repo.snapshotBaseUrl}/libs-snapshot</url>
+          <url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
           <releases>
             <enabled>false</enabled>
           </releases>
@@ -148,7 +148,7 @@
         <pluginRepository>
           <id>openhab-snapshot</id>
           <name>GitLab openHAB Snapshot Repository</name>
-          <url>${oh.repo.snapshotBaseUrl}/libs-snapshot</url>
+          <url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
         </pluginRepository>
       </pluginRepositories>
     </profile>
