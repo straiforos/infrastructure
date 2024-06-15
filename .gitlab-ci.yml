@@ -4,14 +4,21 @@ stages:
   - build
   - deploy
 
+variables:
+  MAVEN_CLI_OPTS: "-s ci_settings.xml"
+
 build:
   stage: build
   script:
-    - mvn clean install
+    - mvn $MAVEN_CLI_OPTS clean package
+  artifacts:
+    paths:
+      - target/*.jar
 
 deploy:
   stage: deploy
+  image: maven:3.6-jdk-11
   script:
-    - mvn deploy
+    - 'mvn deploy $MAVEN_CLI_OPTS'
   only:
     - main
