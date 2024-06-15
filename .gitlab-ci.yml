@@ -19,6 +19,6 @@ deploy:
   stage: deploy
   image: maven:3.6-jdk-11
   script:
-    - 'mvn deploy $MAVEN_CLI_OPTS'
+    - 'mvn deploy -s ci_settings.xml'
   only:
     - main
