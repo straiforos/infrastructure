@@ -12,6 +12,6 @@ deploy:
   script:
     - echo $Deploy_Token
     - mvn clean install -s ci_settings.xml
-    - mvn deploy -s ci_settings.xml
+    - mvn -X deploy -s ci_settings.xml
   only:
     - main
