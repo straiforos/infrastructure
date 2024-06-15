@@ -7,7 +7,7 @@
          <httpHeaders>
            <property>
              <name>Deploy-Token</name>
-             <value>'${Deploy _Token}'</value>
+             <value>glpat-iTyx6YRsD-2AgRFiyRbT</value>
            </property>
          </httpHeaders>
        </configuration>
