@@ -6,7 +6,7 @@
        <configuration>
          <httpHeaders>
            <property>
-             <name>Job-Token</name>
+             <name>Deploy-Token</name>
              <value>${Deploy_Token}</value>
            </property>
          </httpHeaders>
