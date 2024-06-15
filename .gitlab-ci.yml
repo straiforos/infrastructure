@@ -10,7 +10,7 @@ stages:
 deploy:
   stage: deploy
   script:
-    - echo $CI_JOB_TOKEN
+    - echo $Deploy_Token
     - mvn clean install -s ci_settings.xml
     - mvn deploy -s ci_settings.xml
   only:
