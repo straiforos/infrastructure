@@ -7,7 +7,7 @@
          <httpHeaders>
            <property>
              <name>Deploy-Token</name>
-             <value>${Deploy_Token}</value>
+             <value>$Deploy_Token</value>
            </property>
          </httpHeaders>
        </configuration>
