@@ -1,5 +1,9 @@
 image: circleci/openjdk:17-buster-node
 
+cache:
+  paths:
+    - .m2/repository
+
 stages:
   - build
   - deploy
@@ -10,14 +14,10 @@ variables:
 build:
   stage: build
   script:
-    - mvn $MAVEN_CLI_OPTS clean package
-  artifacts:
-    paths:
-      - target/*.jar
+    - mvn $MAVEN_CLI_OPTS clean install
 
 deploy:
   stage: deploy
-  image: maven:3.6-jdk-11
   script:
     - 'mvn deploy -s ci_settings.xml'
   only:
