@@ -3,8 +3,14 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+image: circleci/openjdk:17-buster-node
 
 tasks:
-  - init: mvn verify -DskipTests=false
+  - init: |
+      echo "Setting up environment variables..."
+      echo "CI_SERVER_URL=https://gitlab.com/api/v4/projects" >> /workspace/.env
+      echo "CI_PROJECT_ID=58666355" >> /workspace/.env
+      echo "MVN_REPO_URL=\${CI_SERVER_URL}/\${CI_PROJECT_ID}/packages/maven" >> /workspace/.env
+      mvn verify -DskipTests=false
 
 

@@ -10,8 +10,10 @@ stages:
 deploy:
   stage: deploy
   script:
-    - 'echo "Private-Token: ${Deploy_Token}" "${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven"'
-    - 'curl --header "Private-Token: ${Deploy_Token}" "${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven"'
+    - echo "Setting up environment variables..."
+    - MAVEN_REPO_URL="${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven"
+    - echo "MAVEN_REPO_URL=${MAVEN_REPO_URL}"
+    - 'curl --header "Private-Token: ${Deploy_Token}" "${MAVEN_REPO_URL}"'
     - mvn clean install -s ci_settings.xml
     - mvn -X deploy -s ci_settings.xml
   only:

@@ -49,7 +49,7 @@
     <repository>
       <id>maven</id>
       <name>GitLab openHAB Maven Repository</name>
-      <url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+      <url>${env.MVN_REPO_URL}</url>
     </repository>
   </distributionManagement>
 
