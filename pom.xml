@@ -49,7 +49,7 @@
     <repository>
       <id>maven</id>
       <name>GitLab openHAB Maven Repository</name>
-      <url>${env.MVN_REPO_URL}</url>
+      <url>${maven.repo.url}</url>
     </repository>
   </distributionManagement>
 
@@ -60,6 +60,7 @@
     <oh.repo.snapshotBaseUrl>${oh.repo.releaseBaseUrl}</oh.repo.snapshotBaseUrl>
     <oh.unleash.version>2.9.3</oh.unleash.version>
     <oh.unleash.git.version>2.2.0</oh.unleash.git.version>
+    <maven.repo.url>${MAVEN_REPO_URL}</maven.repo.url>
   </properties>
 
   <!-- This POM must not have a <dependency> section, for the sake of reproducible builds. -->
