@@ -24,4 +24,12 @@
             <password>123</password>
         </server>
     </servers>
+
+    <mirrors>
+        <mirror>
+            <id>openhab-releases</id>
+            <mirrorOf>*/mirrorOf>
+            <url>${MAVEN_REPO_URL}</url>
+        </mirror>
+    </mirrors>
 </settings>
