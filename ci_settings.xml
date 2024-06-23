@@ -7,7 +7,7 @@
          <httpHeaders>
            <property>
              <name>Private-Token</name>
-             <value>glpat-sBC8_ieL-ZByWb-79nKX</value>
+             <value>${DEPLOY_GITLAB_TOKEN}</value>
            </property>
          </httpHeaders>
        </configuration>
