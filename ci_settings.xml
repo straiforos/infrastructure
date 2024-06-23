@@ -6,7 +6,7 @@
             <configuration>
                 <httpHeaders>
                     <property>
-                        <name>InfrastructureDeploy</name>
+                        <name>Private-Token</name>
                         <value>${DEPLOY_GITLAB_TOKEN}</value>
                     </property>
                 </httpHeaders>
