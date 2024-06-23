@@ -12,3 +12,9 @@ Add to your local what the `.gitpod.yml` has.
 ```
 echo "MVN_REPO_URL=\${CI_SERVER_URL}/\${CI_PROJECT_ID}/packages/maven" >> ~/.bashrc
 ```
+
+##### Local Respoilite Maven artifactory
+
+Install [Respoilite](https://reposilite.com/guide/about)
+
+Add token with a name, secret, and permission of a manger. `token-generate test m -s 123`

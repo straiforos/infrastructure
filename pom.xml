@@ -47,17 +47,22 @@
 
   <distributionManagement>
     <repository>
-      <id>maven</id>
-      <name>GitLab openHAB Maven Repository</name>
-      <url>${maven.repo.url}</url>
+      <id>openhab-releases</id>
+      <name>Reposilite self-hosted openHAB Maven Release Repository</name>
+      <url>${oh.repo.releaseBaseUrl}</url>
     </repository>
+    <snapshotRepository>
+      <id>openhab-snapshots</id>
+      <name>Reposilite self-hosted openHAB Maven Snapshot Repository</name>
+      <url>${oh.repo.releaseBaseUrl}</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <properties>
     <oh.scm.gitBaseUrl>https://github.com/openhab</oh.scm.gitBaseUrl>
     <oh.repo.distBaseUrl>https://gitlab.com/tvision360/infrastructure</oh.repo.distBaseUrl>
-    <oh.repo.releaseBaseUrl>https://gitlab.com/tvision360/infrastructure</oh.repo.releaseBaseUrl>
-    <oh.repo.snapshotBaseUrl>${oh.repo.releaseBaseUrl}</oh.repo.snapshotBaseUrl>
+    <oh.repo.releaseBaseUrl>${maven.repo.url}/releases</oh.repo.releaseBaseUrl>
+    <oh.repo.snapshotBaseUrl>${maven.repo.url}/snapshots</oh.repo.snapshotBaseUrl>
     <oh.unleash.version>2.9.3</oh.unleash.version>
     <oh.unleash.git.version>2.2.0</oh.unleash.git.version>
     <maven.repo.url>${MAVEN_REPO_URL}</maven.repo.url>
