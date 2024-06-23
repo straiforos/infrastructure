@@ -22,4 +22,4 @@ Add token with a name, secret, and permission of a manger. `token-generate test 
 Gitlabs repository requires no releases versus snapshots yet reposilite does.
 We use empty env variables to make the dynamic configuration work.
 
-Add to your local machines environment variables `export MAVEN_RELEASE_ENDPOINT=releases` and `export MAVEN_SNAPSHOT_ENDPOINT=releases`.
+Add to your local machines environment variables `export MAVEN_RELEASE_ENDPOINT=releases` and `export MAVEN_SNAPSHOT_ENDPOINT=snapshots`.
