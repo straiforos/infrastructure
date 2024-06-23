@@ -18,3 +18,8 @@ echo "MVN_REPO_URL=\${CI_SERVER_URL}/\${CI_PROJECT_ID}/packages/maven" >> ~/.bas
 Install [Respoilite](https://reposilite.com/guide/about)
 
 Add token with a name, secret, and permission of a manger. `token-generate test m -s 123`
+
+Gitlabs repository requires no releases versus snapshots yet reposilite does.
+We use empty env variables to make the dynamic configuration work.
+
+Add to your local machines environment variables `export MAVEN_RELEASE_ENDPOINT=releases` and `export MAVEN_SNAPSHOT_ENDPOINT=releases`.

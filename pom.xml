@@ -61,11 +61,13 @@
   <properties>
     <oh.scm.gitBaseUrl>https://github.com/openhab</oh.scm.gitBaseUrl>
     <oh.repo.distBaseUrl>https://gitlab.com/tvision360/infrastructure</oh.repo.distBaseUrl>
-    <oh.repo.releaseBaseUrl>${maven.repo.url}/releases</oh.repo.releaseBaseUrl>
-    <oh.repo.snapshotBaseUrl>${maven.repo.url}/snapshots</oh.repo.snapshotBaseUrl>
+    <oh.repo.releaseBaseUrl>${maven.repo.url}/${maven.release.endpoint}</oh.repo.releaseBaseUrl>
+    <oh.repo.snapshotBaseUrl>${maven.repo.url}/{maven.snapshot.endpoint}</oh.repo.snapshotBaseUrl>
     <oh.unleash.version>2.9.3</oh.unleash.version>
     <oh.unleash.git.version>2.2.0</oh.unleash.git.version>
     <maven.repo.url>${MAVEN_REPO_URL}</maven.repo.url>
+    <maven.release.endpoint>${MAVEN_RELEASE_ENDPOINT}</maven.release.endpoint>
+    <maven.snapshot.endpoint>${MAVEN_SNAPSHOT_ENDPOINT}</maven.snapshot.endpoint>
   </properties>
 
   <!-- This POM must not have a <dependency> section, for the sake of reproducible builds. -->
