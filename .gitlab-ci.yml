@@ -13,6 +13,7 @@ deploy:
   stage: deploy
   script:
     - echo $MAVEN_REPO_URL
+    - echo $DEPLOY_GITLAB_TOKEN
     - 'curl --header "Private-Token: ${DEPLOY_GITLAB_TOKEN}" "${MAVEN_REPO_URL}"'
     - mvn clean install -s ci_settings.xml
     - mvn -X deploy -s ci_settings.xml
