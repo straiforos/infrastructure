@@ -13,6 +13,7 @@ deploy:
   stage: deploy
   script:
     - echo $MAVEN_REPO_URL
+    - echo $Deploy_Token
     - 'curl --header "Private-Token: ${Deploy_Token}" "${MAVEN_REPO_URL}"'
     - mvn clean install -s ci_settings.xml
     - mvn -X deploy -s ci_settings.xml
