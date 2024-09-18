@@ -1,0 +1,45 @@
+name: openHAB CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        
+    - name: Cache Maven packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+        
+    - name: Build with Maven
+      run: mvn clean install -DskipTests
+      env:
+        MAVEN_REPO_URL: ${{ secrets.MAVEN_REPO_URL }}
+        MAVEN_RELEASE_ENDPOINT: ${{ secrets.MAVEN_RELEASE_ENDPOINT }}
+        MAVEN_SNAPSHOT_ENDPOINT: ${{ secrets.MAVEN_SNAPSHOT_ENDPOINT }}
+        
+    - name: Run tests
+      run: mvn test
+      
+    - name: Deploy to Maven repository
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: mvn deploy -DskipTests
+      env:
+        MAVEN_REPO_URL: ${{ secrets.MAVEN_REPO_URL }}
+        MAVEN_RELEASE_ENDPOINT: ${{ secrets.MAVEN_RELEASE_ENDPOINT }}
+        MAVEN_SNAPSHOT_ENDPOINT: ${{ secrets.MAVEN_SNAPSHOT_ENDPOINT }}
