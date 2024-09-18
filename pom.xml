@@ -47,14 +47,14 @@
 
   <distributionManagement>
     <repository>
-      <id>openhab-releases</id>
-      <name>Reposilite self-hosted openHAB Maven Release Repository</name>
-      <url>${oh.repo.releaseBaseUrl}</url>
+      <id>tvision360-releases</id>
+      <name>TVision360 Maven Release Repository</name>
+      <url>https://repo.tvision360.io/api/packages/tvision360/maven</url>
     </repository>
     <snapshotRepository>
-      <id>openhab-snapshots</id>
-      <name>Reposilite self-hosted openHAB Maven Snapshot Repository</name>
-      <url>${oh.repo.releaseBaseUrl}</url>
+      <id>tvision360-snapshots</id>
+      <name>TVision360 Maven Snapshot Repository</name>
+      <url>https://repo.tvision360.io/api/packages/tvision360/maven</url>
     </snapshotRepository>
   </distributionManagement>
 
@@ -68,6 +68,7 @@
     <maven.repo.url>${MAVEN_REPO_URL}</maven.repo.url>
     <maven.release.endpoint>${MAVEN_RELEASE_ENDPOINT}</maven.release.endpoint>
     <maven.snapshot.endpoint>${MAVEN_SNAPSHOT_ENDPOINT}</maven.snapshot.endpoint>
+    <tvision360.repo.url>https://repo.tvision360.io/api/packages/tvision360/maven</tvision360.repo.url>
   </properties>
 
   <!-- This POM must not have a <dependency> section, for the sake of reproducible builds. -->
@@ -87,15 +88,16 @@
       </snapshots>
     </repository>
     <repository>
-      <id>openhab-release</id>
-      <name>GitLab openHAB Release Repository</name>
-      <url>${oh.repo.releaseBaseUrl}/libs-release</url>
+      <id>tvision360-repo</id>
+      <name>TVision360 Repository</name>
+      <url>${tvision360.repo.url}</url>
       <releases>
         <enabled>true</enabled>
         <updatePolicy>never</updatePolicy>
       </releases>
       <snapshots>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
       </snapshots>
     </repository>
   </repositories>
@@ -111,6 +113,11 @@
       <id>openhab-release</id>
       <name>GitLab openHAB Release Repository</name>
       <url>${oh.repo.releaseBaseUrl}/libs-release</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>tvision360-repo</id>
+      <name>TVision360 Repository</name>
+      <url>${tvision360.repo.url}</url>
     </pluginRepository>
   </pluginRepositories>
 
