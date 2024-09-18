@@ -88,6 +88,17 @@
       </snapshots>
     </repository>
     <repository>
+      <id>openhab-artifactory-release</id>
+      <name>JFrog Artifactory Repository</name>
+      <url>https://openhab.jfrog.io/openhab/libs-release</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
       <id>tvision360-repo</id>
       <name>TVision360 Repository</name>
       <url>${tvision360.repo.url}</url>
@@ -110,9 +121,15 @@
       <url>https://repo1.maven.org/maven2</url>
     </pluginRepository>
     <pluginRepository>
-      <id>openhab-release</id>
-      <name>GitLab openHAB Release Repository</name>
-      <url>${oh.repo.releaseBaseUrl}/libs-release</url>
+      <id>openhab-artifactory-release</id>
+      <name>JFrog Artifactory Repository</name>
+      <url>https://openhab.jfrog.io/openhab/libs-release</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
     </pluginRepository>
     <pluginRepository>
       <id>tvision360-repo</id>
@@ -130,28 +147,24 @@
         </property>
       </activation>
       <repositories>
-        <!--
-          This repository section overrules the main one from above, if this profile is active.
-          We therefore must mention the release repo here as well.
-        -->
         <repository>
-          <id>openhab-release</id>
-          <name>GitLab openHAB Release Repository</name>
-          <url>${oh.repo.releaseBaseUrl}/libs-release</url>
+          <id>openhab-artifactory-release</id>
+          <name>JFrog Artifactory Repository</name>
+          <url>https://openhab.jfrog.io/openhab/libs-release</url>
           <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
+            <enabled>false</enabled>
           </releases>
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
         </repository>
         <repository>
-          <id>openhab-snapshot</id>
-          <name>GitLab openHAB Snapshot Repository</name>
-          <url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+          <id>tvision360-repo</id>
+          <name>TVision360 Repository</name>
+          <url>${tvision360.repo.url}</url>
           <releases>
-            <enabled>false</enabled>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
           </releases>
           <snapshots>
             <enabled>true</enabled>
@@ -161,9 +174,20 @@
       </repositories>
       <pluginRepositories>
         <pluginRepository>
-          <id>openhab-snapshot</id>
-          <name>GitLab openHAB Snapshot Repository</name>
-          <url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+          <id>openhab-artifactory-release</id>
+          <name>JFrog Artifactory Repository</name>
+          <url>https://openhab.jfrog.io/openhab/libs-release</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>tvision360-repo</id>
+          <name>TVision360 Repository</name>
+          <url>${tvision360.repo.url}</url>
         </pluginRepository>
       </pluginRepositories>
     </profile>
