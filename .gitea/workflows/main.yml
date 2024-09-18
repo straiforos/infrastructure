@@ -22,12 +22,21 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-m2-
+      run: |
+        CACHE_KEY="${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}"
+        if [ -d ~/.m2 ]; then
+          tar -czf maven-repo.tar.gz -C ~ .m2
+          gitea-release upload -f maven-repo.tar.gz -n "maven-repo-${CACHE_KEY}.tar.gz"
+        fi
+
+    - name: Restore Maven packages
+      run: |
+        CACHE_KEY="${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}"
+        if gitea-release download -n "maven-repo-${CACHE_KEY}.tar.gz" -o maven-repo.tar.gz; then
+          mkdir -p ~/.m2
+          tar -xzf maven-repo.tar.gz -C ~
+          rm maven-repo.tar.gz
+        fi
 
     - name: Build with Maven
       run: mvn clean install -DskipTests
