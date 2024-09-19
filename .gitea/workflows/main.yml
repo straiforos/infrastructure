@@ -52,7 +52,8 @@ jobs:
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
         echo "PACKAGE_TOKEN: $(echo ${{ secrets.PACKAGE_TOKEN }} | cut -c1-8)..."
-        mvn deploy -DskipTests -X \
-        -s ci_settings.xml -DrepositoryId=tvision360-releases
+        mvn deploy -DskipTests -X -U \
+        -s ci_settings.xml -DrepositoryId=tvision360-releases \
+        -Dmaven.deploy.skip=false -Dmaven.deploy.uniqueVersion=false
       env:
         PACKAGE_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
