@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: atools/jdk-maven-node
+    container: localstack/java-maven-node-python
 
     steps:
     - uses: actions/checkout@v3
