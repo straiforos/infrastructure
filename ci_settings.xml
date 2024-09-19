@@ -3,13 +3,25 @@
     <servers>
         <server>
             <id>tvision360-releases</id>
-            <username>git</username>
-            <password>${env.GITEA_TOKEN}</password>
+            <configuration>
+                <httpHeaders>
+                    <property>
+                        <name>Authorization</name>
+                        <value>token ${env.GITEA_TOKEN}</value>
+                    </property>
+                </httpHeaders>
+            </configuration>
         </server>
         <server>
             <id>tvision360-snapshots</id>
-            <username>git</username>
-            <password>${env.GITEA_TOKEN}</password>
+            <configuration>
+                <httpHeaders>
+                    <property>
+                        <name>Authorization</name>
+                        <value>token ${env.GITEA_TOKEN}</value>
+                    </property>
+                </httpHeaders>
+            </configuration>
         </server>
     </servers>
 </settings>
