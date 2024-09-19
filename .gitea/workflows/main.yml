@@ -59,4 +59,4 @@ jobs:
         mvn deploy -DskipTests -X \
         -s ci_settings.xml -DrepositoryId=tvision360-releases
       env:
-        GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
+        PACKAGE_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
