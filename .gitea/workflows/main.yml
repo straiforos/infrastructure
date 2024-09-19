@@ -52,10 +52,8 @@ jobs:
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
         mvn deploy -DskipTests \
-        -Drepository.url=${{ secrets.MAVEN_REPO_URL }} \
-        -Drepository.username=${{ secrets.MAVEN_REPO_USERNAME }} \
-        -Drepository.password=${{ secrets.MAVEN_REPO_PASSWORD }}
+        -s ci_settings.xml \
+        -Drepository.url=${{ secrets.MAVEN_REPO_URL }}
       env:
         MAVEN_REPO_URL: ${{ secrets.MAVEN_REPO_URL }}
-        MAVEN_RELEASE_ENDPOINT: ${{ secrets.MAVEN_RELEASE_ENDPOINT }}
-        MAVEN_SNAPSHOT_ENDPOINT: ${{ secrets.MAVEN_SNAPSHOT_ENDPOINT }}
+        GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
