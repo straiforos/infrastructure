@@ -20,8 +20,7 @@ jobs:
     - name: Run tests
       run: mvn test
         
-    - name: Deploy to Maven repository (Release)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    - name: Deploy to Maven repository
       run: |
         echo "PACKAGE_TOKEN: $(echo ${{ secrets.PACKAGE_TOKEN }} | cut -c1-8)..."
         mvn deploy -DskipTests -s ci_settings.xml
