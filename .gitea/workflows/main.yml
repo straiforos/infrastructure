@@ -47,15 +47,11 @@ jobs:
         
     - name: Run tests
       run: mvn test
-      
-    - name: Check GITEA_TOKEN
-      run: |
-        echo "GITEA_TOKEN value: ${{ secrets.GITEA_TOKEN }}"
         
     - name: Deploy to Maven repository
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        echo "GITEA_TOKEN: ${{ secrets.PACKAGE_TOKEN }}"
+        echo "PACKAGE_TOKEN: $(echo ${{ secrets.PACKAGE_TOKEN }} | cut -c1-8)..."
         mvn deploy -DskipTests -X \
         -s ci_settings.xml -DrepositoryId=tvision360-releases
       env:
