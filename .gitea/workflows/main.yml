@@ -9,16 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: maven:3.8.4-openjdk-11
+    container: atools/jdk-maven-node
 
     steps:
-    - name: Install Node.js
-      run: |
-        apt-get update
-        apt-get install -y curl
-        curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-        apt-get install -y nodejs
-    
     - uses: actions/checkout@v3
 
     - name: Build with Maven
