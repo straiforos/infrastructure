@@ -7,7 +7,7 @@
                 <httpHeaders>
                     <property>
                         <name>Authorization</name>
-                        <value>token ${env.GITEA_TOKEN}</value>
+                        <value>token ${secrets.GITEA_TOKEN}</value>
                     </property>
                 </httpHeaders>
             </configuration>
@@ -18,7 +18,7 @@
                 <httpHeaders>
                     <property>
                         <name>Authorization</name>
-                        <value>token ${env.GITEA_TOKEN}</value>
+                        <value>token ${secrets.GITEA_TOKEN}</value>
                     </property>
                 </httpHeaders>
             </configuration>
