@@ -55,7 +55,7 @@ jobs:
     - name: Deploy to Maven repository
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        echo "GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}"
+        echo "GITEA_TOKEN: ${{ secrets.PACKAGE_TOKEN }}"
         mvn deploy -DskipTests -X \
         -s ci_settings.xml -DrepositoryId=tvision360-releases
       env:
