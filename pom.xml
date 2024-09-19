@@ -49,12 +49,12 @@
     <repository>
       <id>tvision360-releases</id>
       <name>TVision360 Maven Release Repository</name>
-      <url>https://repo.tvision360.io/api/packages/tvision360/maven</url>
+      <url>${tvision360.repo.url}</url>
     </repository>
     <snapshotRepository>
       <id>tvision360-snapshots</id>
       <name>TVision360 Maven Snapshot Repository</name>
-      <url>https://repo.tvision360.io/api/packages/tvision360/maven</url>
+      <url>${tvision360.repo.url}</url>
     </snapshotRepository>
   </distributionManagement>
 

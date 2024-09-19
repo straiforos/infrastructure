@@ -51,11 +51,7 @@ jobs:
     - name: Deploy to Maven repository
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        echo "GITEA_TOKEN: $(echo $GITEA_TOKEN | cut -c1-4)..."
-        echo "MAVEN_REPO_URL: $MAVEN_REPO_URL"
-        mvn deploy -DskipTests -X \
-        -s ci_settings.xml \
-        -Drepository.url=${{ secrets.MAVEN_REPO_URL }}
+        mvn deploy -DskipTests \
+        -s ci_settings.xml
       env:
-        MAVEN_REPO_URL: ${{ secrets.MAVEN_REPO_URL }}
         GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
