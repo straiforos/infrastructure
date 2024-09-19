@@ -20,30 +20,9 @@ jobs:
         apt-get install -y nodejs
     
     - uses: actions/checkout@v3
-    
-    - name: Cache Maven packages
-      run: |
-        CACHE_KEY="${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}"
-        if [ -d ~/.m2 ]; then
-          tar -czf maven-repo.tar.gz -C ~ .m2
-          gitea-release upload -f maven-repo.tar.gz -n "maven-repo-${CACHE_KEY}.tar.gz"
-        fi
-
-    - name: Restore Maven packages
-      run: |
-        CACHE_KEY="${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}"
-        if gitea-release download -n "maven-repo-${CACHE_KEY}.tar.gz" -o maven-repo.tar.gz; then
-          mkdir -p ~/.m2
-          tar -xzf maven-repo.tar.gz -C ~
-          rm maven-repo.tar.gz
-        fi
 
     - name: Build with Maven
       run: mvn clean install -DskipTests
-      env:
-        MAVEN_REPO_URL: ${{ secrets.MAVEN_REPO_URL }}
-        MAVEN_RELEASE_ENDPOINT: ${{ secrets.MAVEN_RELEASE_ENDPOINT }}
-        MAVEN_SNAPSHOT_ENDPOINT: ${{ secrets.MAVEN_SNAPSHOT_ENDPOINT }}
         
     - name: Run tests
       run: mvn test
