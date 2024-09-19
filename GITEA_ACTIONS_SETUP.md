@@ -15,9 +15,9 @@ This guide will help you set up the Gitea Actions pipeline for the openHAB proje
 
 2. **Set Up Secrets**:
    You need to set up the following secrets in your Gitea repository:
-   - `MAVEN_REPO_URL`
-   - `MAVEN_RELEASE_ENDPOINT`
-   - `MAVEN_SNAPSHOT_ENDPOINT`
+   - `MAVEN_REPO_URL`: The URL of your Maven repository
+   - `MAVEN_REPO_USERNAME`: The username for authenticating with the Maven repository
+   - `MAVEN_REPO_PASSWORD`: The password for authenticating with the Maven repository
 
    To set up secrets:
    1. Go to your repository settings in Gitea.
@@ -25,13 +25,17 @@ This guide will help you set up the Gitea Actions pipeline for the openHAB proje
    3. Add each secret with its corresponding value.
 
 3. **Verify Java Version**:
-   - The workflow uses Java 11. If you need a different version, modify the `java-version` field in the "Set up JDK" step of the workflow file.
+   - The workflow uses Java 11 (openjdk-11). If you need a different version, modify the container image in the `main.yml` file.
 
-4. **Commit and Push**:
-   - Commit the `.gitea/workflows/main.yml` file to your repository.
+4. **Update pom.xml**:
+   - Ensure your `pom.xml` file includes the correct `distributionManagement` section for the Maven repository.
+   - The `tvision360.repo.url` property should be set to the URL of your Maven repository.
+
+5. **Commit and Push**:
+   - Commit the `.gitea/workflows/main.yml` file and updated `pom.xml` to your repository.
    - Push the changes to the `main` branch.
 
-5. **Verify Workflow**:
+6. **Verify Workflow**:
    - Go to the "Actions" tab in your Gitea repository.
    - You should see the "openHAB CI" workflow listed.
    - The workflow will run automatically on pushes to the `main` branch and for pull requests targeting `main`.
@@ -44,7 +48,14 @@ This guide will help you set up the Gitea Actions pipeline for the openHAB proje
 ## Troubleshooting
 
 - If the workflow fails, check the workflow run logs for error messages.
-- Ensure all required secrets are correctly set up.
-- Verify that your `pom.xml` file is correctly configured to use the environment variables for Maven repository URLs.
+- Ensure all required secrets are correctly set up in your Gitea repository.
+- Verify that your `pom.xml` file is correctly configured to use the environment variables for the Maven repository URL.
+- If you encounter authentication issues during deployment, double-check that `MAVEN_REPO_USERNAME` and `MAVEN_REPO_PASSWORD` are correctly set and that the associated user has the necessary permissions to deploy artifacts.
+- Make sure the `distributionManagement` section in your `pom.xml` matches the repository URL you're trying to deploy to.
+
+## Notes
+
+- The current setup uses a fixed URL for the TVision360 repository. If you need to use a different repository, update the `tvision360.repo.url` property in the `pom.xml` file.
+- The workflow includes steps for caching and restoring Maven packages to speed up builds. This uses Gitea's release functionality to store the cache.
 
 For more information on Gitea Actions, refer to the [Gitea Actions documentation](https://docs.gitea.io/en-us/actions/).
