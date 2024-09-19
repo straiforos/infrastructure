@@ -48,6 +48,10 @@ jobs:
     - name: Run tests
       run: mvn test
       
+    - name: Check GITEA_TOKEN
+      run: |
+        echo "GITEA_TOKEN value: ${{ secrets.GITEA_TOKEN }}"
+        
     - name: Deploy to Maven repository
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
