@@ -75,6 +75,19 @@
 
   <repositories>
     <repository>
+      <id>tvision360-repo</id>
+      <name>TVision360 Repository</name>
+      <url>${tvision360.repo.url}</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </snapshots>
+    </repository>
+    <repository>
       <id>central</id>
       <name>Maven Central</name>
       <layout>default</layout>
@@ -96,19 +109,6 @@
       </releases>
       <snapshots>
         <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>tvision360-repo</id>
-      <name>TVision360 Repository</name>
-      <url>${tvision360.repo.url}</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
       </snapshots>
     </repository>
   </repositories>
