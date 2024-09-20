@@ -20,22 +20,9 @@ jobs:
     - name: Run tests
       run: mvn test
         
-    - name: Deploy to Maven repository (Release)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    - name: Deploy to Maven repository
       run: |
         echo "PACKAGE_TOKEN: $(echo ${{ secrets.PACKAGE_TOKEN }} | cut -c1-8)..."
-        mvn deploy -DskipTests -X -U \
-        -s ci_settings.xml -DrepositoryId=tvision360-releases \
-        -Dmaven.deploy.skip=false -Dmaven.deploy.uniqueVersion=false
-      env:
-        PACKAGE_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
-
-    - name: Deploy to Maven repository (Snapshot)
-      if: github.event_name == 'push' && github.ref != 'refs/heads/main'
-      run: |
-        echo "PACKAGE_TOKEN: $(echo ${{ secrets.PACKAGE_TOKEN }} | cut -c1-8)..."
-        mvn deploy -DskipTests -X -U \
-        -s ci_settings.xml -DrepositoryId=tvision360-snapshots \
-        -Dmaven.deploy.skip=false
+        mvn deploy -DskipTests -s ci_settings.xml
       env:
         PACKAGE_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
