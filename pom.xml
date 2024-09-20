@@ -87,7 +87,7 @@
         <updatePolicy>daily</updatePolicy>
       </snapshots>
     </repository>
-    <repository>
+    <!-- <repository>
       <id>central</id>
       <name>Maven Central</name>
       <layout>default</layout>
@@ -110,7 +110,7 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-    </repository>
+    </repository> -->
   </repositories>
 
   <pluginRepositories>
