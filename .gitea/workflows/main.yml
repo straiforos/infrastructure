@@ -12,12 +12,12 @@ jobs:
     container: maven:3.9.9-amazoncorretto-17
 
     steps:
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 'latest'
-
     - uses: actions/checkout@v3
+
+    - name: Install Node.js
+      run: |
+        curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+        apt-get install -y nodejs
 
     - name: Build with Maven
       run: mvn clean install -DskipTests
