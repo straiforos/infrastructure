@@ -9,12 +9,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: maven:3.8.4-openjdk-17
+    container: maven:3.9.9-amazoncorretto-17-debian
 
     steps:
     - name: Install Node.js
       run: |
-        curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+        apt-get update
+        apt-get install -y curl
+        curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
         apt-get install -y nodejs
 
     - uses: actions/checkout@v3
