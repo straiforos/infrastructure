@@ -59,9 +59,6 @@
   </distributionManagement>
 
   <properties>
-    <maven.repo.url>${MAVEN_REPO_URL}</maven.repo.url>
-    <maven.release.endpoint>${MAVEN_RELEASE_ENDPOINT}</maven.release.endpoint>
-    <maven.snapshot.endpoint>${MAVEN_SNAPSHOT_ENDPOINT}</maven.snapshot.endpoint>
     <tvision360.repo.url>https://repo.tvision360.io/api/packages/tvision360/maven</tvision360.repo.url>
   </properties>
 
@@ -81,50 +78,9 @@
         <updatePolicy>daily</updatePolicy>
       </snapshots>
     </repository>
-    <!-- <repository>
-      <id>central</id>
-      <name>Maven Central</name>
-      <layout>default</layout>
-      <url>https://repo1.maven.org/maven2</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>openhab-artifactory-release</id>
-      <name>JFrog Artifactory Repository</name>
-      <url>https://openhab.jfrog.io/openhab/libs-release</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository> -->
   </repositories>
 
   <pluginRepositories>
-    <pluginRepository>
-      <id>central</id>
-      <name>Maven Central</name>
-      <layout>default</layout>
-      <url>https://repo1.maven.org/maven2</url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>openhab-artifactory-release</id>
-      <name>JFrog Artifactory Repository</name>
-      <url>https://openhab.jfrog.io/openhab/libs-release</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </pluginRepository>
     <pluginRepository>
       <id>tvision360-repo</id>
       <name>TVision360 Repository</name>
@@ -142,17 +98,6 @@
       </activation>
       <repositories>
         <repository>
-          <id>openhab-artifactory-release</id>
-          <name>JFrog Artifactory Repository</name>
-          <url>https://openhab.jfrog.io/openhab/libs-release</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </repository>
-        <repository>
           <id>tvision360-repo</id>
           <name>TVision360 Repository</name>
           <url>${tvision360.repo.url}</url>
@@ -166,24 +111,6 @@
           </snapshots>
         </repository>
       </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>openhab-artifactory-release</id>
-          <name>JFrog Artifactory Repository</name>
-          <url>https://openhab.jfrog.io/openhab/libs-release</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-          <id>tvision360-repo</id>
-          <name>TVision360 Repository</name>
-          <url>${tvision360.repo.url}</url>
-        </pluginRepository>
-      </pluginRepositories>
     </profile>
   </profiles>
 
