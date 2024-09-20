@@ -13,8 +13,8 @@
   <url>https://github.com/openhab/infrastructure</url>
 
   <organization>
-    <name>openHAB.org</name>
-    <url>https://www.openhab.org</url>
+    <name>TVision360</name>
+    <url>https://www.tvision360.io</url>
   </organization>
 
   <licenses>
@@ -26,23 +26,23 @@
 
   <developers>
     <developer>
-      <id>openhab</id>
-      <name>openHAB</name>
-      <email>info@openhab.org</email>
-      <organization>openHAB</organization>
-      <organizationUrl>https://www.openHAB.org</organizationUrl>
+      <id>tvision360</id>
+      <name>TVision360</name>
+      <email>stephen@tvision360.io</email>
+      <organization>TVision360</organization>
+      <organizationUrl>https://www.tvision360.io</organizationUrl>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:openhab/infrastructure.git</connection>
-    <developerConnection>scm:git:git@github.com:openhab/infrastructure.git</developerConnection>
-    <url>https://github.com/openhab/infrastructure.git</url>
+    <connection>scm:git:https://repo.tvision360.io/TVision360/infrastructure.git</connection>
+    <developerConnection>scm:git:https://repo.tvision360.io/TVision360/infrastructure.git</developerConnection>
+    <url>https://repo.tvision360.io/TVision360/infrastructure.git</url>
   </scm>
 
   <issueManagement>
-    <system>github</system>
-    <url>https://github.com/openhab/infrastructure/issues</url>
+    <system>gitea</system>
+    <url>https://repo.tvision360.io/TVision360/infrastructure/issues</url>
   </issueManagement>
 
   <distributionManagement>
@@ -59,12 +59,6 @@
   </distributionManagement>
 
   <properties>
-    <oh.scm.gitBaseUrl>https://github.com/openhab</oh.scm.gitBaseUrl>
-    <oh.repo.distBaseUrl>https://gitlab.com/tvision360/infrastructure</oh.repo.distBaseUrl>
-    <oh.repo.releaseBaseUrl>${maven.repo.url}/${maven.release.endpoint}</oh.repo.releaseBaseUrl>
-    <oh.repo.snapshotBaseUrl>${maven.repo.url}/{maven.snapshot.endpoint}</oh.repo.snapshotBaseUrl>
-    <oh.unleash.version>2.9.3</oh.unleash.version>
-    <oh.unleash.git.version>2.2.0</oh.unleash.git.version>
     <maven.repo.url>${MAVEN_REPO_URL}</maven.repo.url>
     <maven.release.endpoint>${MAVEN_RELEASE_ENDPOINT}</maven.release.endpoint>
     <maven.snapshot.endpoint>${MAVEN_SNAPSHOT_ENDPOINT}</maven.snapshot.endpoint>
