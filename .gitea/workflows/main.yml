@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: maven:3.9.9-amazoncorretto-17-debian
+    container: maven:3.8.4-openjdk-17
 
     steps:
     - name: Install Node.js
