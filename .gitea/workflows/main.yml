@@ -12,9 +12,16 @@ jobs:
     container: maven:3.9.9-amazoncorretto-17-debian
 
     steps:
-    - name: Install Node.js
+    - name: Install latest Git
       run: |
         apt-get update
+        apt-get install -y software-properties-common
+        add-apt-repository ppa:git-core/ppa -y
+        apt-get update
+        apt-get install -y git
+
+    - name: Install Node.js
+      run: |
         apt-get install -y curl
         curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
         apt-get install -y nodejs
