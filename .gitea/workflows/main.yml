@@ -1,4 +1,4 @@
-name: openHAB CI
+name: TVision360 CI
 
 on:
   push:
