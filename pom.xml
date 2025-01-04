@@ -35,40 +35,40 @@
   </developers>
 
   <scm>
-    <connection>scm:git:https://repo.tvision360.io/TVision360/infrastructure.git</connection>
-    <developerConnection>scm:git:https://repo.tvision360.io/TVision360/infrastructure.git</developerConnection>
-    <url>https://repo.tvision360.io/TVision360/infrastructure.git</url>
+    <connection>scm:git:https://github.com/straiforos/infrastructure.git</connection>
+    <developerConnection>scm:git:https://github.com/straiforos/infrastructure.git</developerConnection>
+    <url>https://github.com/straiforos/infrastructure</url>
   </scm>
 
   <issueManagement>
-    <system>gitea</system>
-    <url>https://repo.tvision360.io/TVision360/infrastructure/issues</url>
+    <system>github</system>
+    <url>https://github.com/straiforos/infrastructure/issues</url>
   </issueManagement>
 
   <distributionManagement>
     <repository>
-      <id>tvision360-releases</id>
-      <name>TVision360 Maven Release Repository</name>
-      <url>${tvision360.repo.url}</url>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/straiforos/infrastructure</url>
     </repository>
     <snapshotRepository>
-      <id>tvision360-snapshots</id>
-      <name>TVision360 Maven Snapshot Repository</name>
-      <url>${tvision360.repo.url}</url>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/straiforos/infrastructure</url>
     </snapshotRepository>
   </distributionManagement>
 
   <properties>
-    <tvision360.repo.url>https://repo.tvision360.io/api/packages/tvision360/maven</tvision360.repo.url>
+    <github.repo.url>https://maven.pkg.github.com/straiforos/infrastructure</github.repo.url>
   </properties>
 
   <!-- This POM must not have a <dependency> section, for the sake of reproducible builds. -->
 
   <repositories>
     <repository>
-      <id>tvision360-repo</id>
-      <name>TVision360 Repository</name>
-      <url>${tvision360.repo.url}</url>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>${github.repo.url}</url>
       <releases>
         <enabled>true</enabled>
         <updatePolicy>never</updatePolicy>
@@ -82,9 +82,9 @@
 
   <pluginRepositories>
     <pluginRepository>
-      <id>tvision360-repo</id>
-      <name>TVision360 Repository</name>
-      <url>${tvision360.repo.url}</url>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>${github.repo.url}</url>
     </pluginRepository>
   </pluginRepositories>
 
