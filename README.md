@@ -2,6 +2,19 @@
 
 This project contains infrastructure configurations and functionalities that are used by TVision 360, a fork of the openHAB project. It builds upon the foundation laid by openHAB, extending and customizing it to meet specific requirements.
 
+## Quick Links
+- Repository: [straiforos/infrastructure](https://github.com/straiforos/infrastructure)
+- Packages: [GitHub Packages](https://github.com/straiforos/infrastructure/packages)
+- Original Project: [openhab/infrastructure](https://github.com/openhab/infrastructure)
+- License: [EPL-2.0](LICENSE)
+
+## Project Setup
+
+### Prerequisites
+- Java 17
+- Maven 3.8+
+- Git
+
 ## TVision 360 Installation
 
 #### Environment Variables

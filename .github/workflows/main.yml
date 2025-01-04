@@ -35,4 +35,9 @@ jobs:
         echo "PACKAGE_TOKEN: $(echo ${{ secrets.PACKAGE_TOKEN }} | cut -c1-8)..."
         mvn deploy -DskipTests -s ci_settings.xml
       env:
-        PACKAGE_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+        PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_ACTOR: ${{ github.actor }}
+
+permissions:
+  contents: read
+  packages: write
