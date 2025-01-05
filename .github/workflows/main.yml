@@ -33,7 +33,7 @@ jobs:
     - name: Deploy to Maven repository
       run: |
         echo "PACKAGE_TOKEN: $(echo ${{ secrets.PACKAGE_TOKEN }} | cut -c1-8)..."
-        mvn deploy -DskipTests -s ci_settings.xml
+        mvn deploy -B --no-transfer-progress -DskipTests -DuniqueVersion=false -U -s ci_settings.xml
       env:
         PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_ACTOR: ${{ github.actor }}
