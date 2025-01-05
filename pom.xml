@@ -5,7 +5,7 @@
 
   <groupId>org.openhab</groupId>
   <artifactId>openhab-super-pom</artifactId>
-  <version>${project.major.version}${version.suffix}</version>
+  <version>1.0.6</version>
 
   <packaging>pom</packaging>
   <name>openHAB Super POM</name>
@@ -60,7 +60,6 @@
 
   <properties>
     <github.repo.url>https://maven.pkg.github.com/straiforos/infrastructure</github.repo.url>
-    <project.major.version>1.0.6</project.major.version>
   </properties>
 
   <!-- This POM must not have a <dependency> section, for the sake of reproducible builds. -->
@@ -112,18 +111,6 @@
           </snapshots>
         </repository>
       </repositories>
-    </profile>
-    <profile>
-        <id>snapshot</id>
-        <properties>
-            <version.suffix>-SNAPSHOT</version.suffix>
-        </properties>
-    </profile>
-    <profile>
-        <id>release</id>
-        <properties>
-            <version.suffix></version.suffix>
-        </properties>
     </profile>
   </profiles>
 
