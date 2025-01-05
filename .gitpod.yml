@@ -7,11 +7,6 @@ image: circleci/openjdk:17-buster-node
 
 tasks:
   - init: |
-      echo "Setting up environment variables..."
-      echo "CI_SERVER_URL=https://gitlab.com/api/v4/projects" >>  ~/.bashrc
-      echo "CI_PROJECT_ID=58666355" >>  ~/.bashrc
-      echo "MVN_REPO_URL=\${CI_SERVER_URL}/\${CI_PROJECT_ID}/packages/maven" >> ~/.bashrc
-      source ~/.bashrc
       mvn verify -DskipTests=false
 
 
